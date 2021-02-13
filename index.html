@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body >
+    <div class="parent">
+        <div class="heart">
+          <span>&hearts;</span>
+        </div>
+      </div>
+    <img id="arrange"  src="https://i.etsystatic.com/22559087/r/il/09ba1e/2597818012/il_1588xN.2597818012_2vls.jpg" alt="">
+   
+    <div id="po" class="card w-50 m-auto text-center">
+        <div class="card-header bg-danger" id="des">Love Calculator</div>
+        <div class="card-body m-auto">
+            <form action="" class="form-inline">
+                <div class="form-group">
+                        <input type="text" name=""  class="form-control text-center" placeholder="Your Name Please!">
+                </div>
+                <div><span class="pl-4 pr-4"> + </span></div>
+                <div class="form-group">
+                    <input type="text" name="" class="form-control text-center"placeholder="Your Love's name">
+                </div>
+            </form>
+            <br>
+            <div class="w-75 m-auto ">
+                 <button class="btn btn-success w-50" onclick="checkfun()">Click</button>   
+            </div>
+            <br>
+            <div>
+                <input type="text" name="" id="lovevalue" placeholder="Love Percentage" class="form-control text-center w-25 m-auto">
+            </div>
+        </div>
+    
+        <div class="card-footer">
+            <div class="font-design">
+                Happy Valentines!!
+
+            </div>
+            <div>
+        <p class="footer-heart" id="xyz" >
+            Made with <g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">
+          <img class="emoji" alt="heart" height="10" width="10" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png"></g-emoji> by <a href="https://armin.id">Safal</a>
+          </p>
+    </div>
+        </div>
+        
+    </div>
+
+    <script>
+        function checkfun(){
+            let love=Math.random()*100;
+            let val=Math.floor(love);
+            document.getElementById('lovevalue').value=val+"%";
+
+        }
+        const endAngle = 226;
+let canvas = document.getElementById('myCanvas');
+let context = canvas.getContext('2d');
+let counter = 60;
+let radius, tx, ty;
+context.translate(tx, ty);
+randomize();
+requestAnimationFrame(animate);
+ 
+function animate() {
+  let x, y;
+  if (counter <= endAngle) {
+    let radians = Math.PI / 180 * counter;
+    y = radius * Math.sin(radians);
+    x = radius * Math.cos(radians);
+    context.fillRect(radius / 2 - x, -y, 2, 2);
+    context.fillRect(-radius / 2 + x, -y, 2, 2);
+  } else {
+    x = counter - endAngle - radius * 1.2;
+    y = counter - endAngle + radius * .71;
+    context.fillRect(x, y, 2, 2);
+    context.fillRect(-x, y, 2, 2);
+  }
+  counter = counter + 1;
+  if (counter >= endAngle + radius * 1.2) randomize();
+  requestAnimationFrame(animate);
+}
+ 
+function randomize() {
+  counter = 60;
+  context.fillStyle = 'rgba(255,' + Math.floor(Math.random() * 255) + ', 255 ,1)';
+  radius = Math.random() * 100;
+  context.translate(-tx, -ty);
+  tx = Math.random() * canvas.width;
+  ty = Math.random() * canvas.height;
+  context.translate(tx, ty);
+}
+
+    </script>
+    
+</body>
+</html>
